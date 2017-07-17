@@ -33,7 +33,7 @@ public class WordCountRunner extends Configured implements Tool{
 		job.setMapperClass(WordCountMapper.class);
 		//指定reducer
 		job.setReducerClass(WordCountReducer.class);
-		job.setInputFormatClass(SequenceFileInputFormat.class);
+//		job.setInputFormatClass(SequenceFileInputFormat.class);
 		
 		//指定mapper的输入：用默认的TextInputFormat
 		/*
