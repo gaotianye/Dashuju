@@ -498,10 +498,10 @@ public class OssLogWritable implements WritableComparable<OssLogWritable> {
 	//=================toString===============================
 	@Override
 	public String toString() {
-		return remoteIp + ", \t" + temp1 + ", \t" + temp2 + ", \t" + time + ", \t" + requestUri + ", \t" + httpStatus
-				+ ", \t" + sentBytes + ", \t" + requestTime + ", \t" + referer + ", \t" + userAgent + ", \t" + hostName
-				+ ", \t" + requestId + ", \t" + loggingFlag + ", \t" + aliyunId + ", \t" + operation + ", \t" + bucket
-				+ ", \t" + key + ", \t" + objectSize + ", \t" + serverCostTime + ", \t" + errorCode + ", \t"
-				+ requestLength + ", \t" + userId + ", \t" + deltaDatasize + ", \t" + syncRequest + ", \t" + temp3;
+		return remoteIp + "," + temp1 + "," + temp2 + "," + time + "," + requestUri + "," + httpStatus + "," + sentBytes
+				+ "," + requestTime + "," + referer + "," + userAgent + "," + hostName + "," + requestId + ","
+				+ loggingFlag + "," + aliyunId + "," + operation + "," + bucket + "," + key + "," + objectSize + ","
+				+ serverCostTime + "," + errorCode + "," + requestLength + "," + userId + "," + deltaDatasize + ","
+				+ syncRequest + "," + temp3;
 	}
 }
