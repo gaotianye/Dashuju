@@ -24,7 +24,7 @@ public class WordCountMapper extends Mapper<LongWritable, Text, Text, LongWritab
 	@Override
 	protected void setup(Context context)
 			throws IOException, InterruptedException {
-		System.out.print("mapper set up........");
+		System.out.println("mapper set up........");
 		word = new Text();
 		one = new LongWritable(1);
 	}
@@ -45,6 +45,6 @@ public class WordCountMapper extends Mapper<LongWritable, Text, Text, LongWritab
 	@Override
 	protected void cleanup(Context context)
 			throws IOException, InterruptedException {
-		System.out.print("mapper clean up........");
+		System.out.println("mapper clean up........");
 	}
 }
