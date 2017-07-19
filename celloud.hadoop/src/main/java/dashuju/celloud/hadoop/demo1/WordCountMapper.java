@@ -29,7 +29,9 @@ public class WordCountMapper extends Mapper<LongWritable, Text, Text, LongWritab
 		one = new LongWritable(1);
 	}
 	
-	
+	/**
+	 * context前面加上包名，有的时候会报错（尤其是做MRUnit测试时）
+	 */
 	@Override
 	protected void map(LongWritable key, Text value, Context context)
 			throws IOException, InterruptedException {
