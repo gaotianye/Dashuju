@@ -14,7 +14,7 @@ import org.apache.hadoop.mapreduce.Mapper;
  * @author Administrator
  *
  */
-public class OssCleanMapper extends Mapper<LongWritable, Text, OssLogWritable, NullWritable> {
+public class OssCleanMapper extends Mapper<LongWritable, Text, NullWritable,OssLogWritable> {
 	private OssLogWritable osslog;
 	@Override
 	protected void setup(Context context)
@@ -32,7 +32,7 @@ public class OssCleanMapper extends Mapper<LongWritable, Text, OssLogWritable, N
 		if(matcher.find()){
 			osslog = add2OssLog(matcher,osslog);
 		}
-		context.write(osslog,NullWritable.get());
+		context.write(NullWritable.get(),osslog);
 	}
 	/**
 	 * 构建osslog对象

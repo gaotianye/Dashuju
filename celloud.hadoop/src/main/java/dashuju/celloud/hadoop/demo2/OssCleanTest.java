@@ -68,10 +68,10 @@ public class OssCleanTest {
         		+ "\"NoSuchKey\" 254 \"1295372657422098\" - \"-\" \"-\"");
         mapDriver
         .withInput(new LongWritable(),text)
-        .withOutput(new OssLogWritable(remoteIp, temp1, temp2, time, requestUri, httpStatus, 
+        .withOutput(NullWritable.get(),new OssLogWritable(remoteIp, temp1, temp2, time, requestUri, httpStatus, 
 				sentBytes, requestTime, referer, userAgent, hostName, requestId, 
 				loggingFlag, aliyunId, operation, bucket, key, objectSize,serverCostTime, 
-				errorCode, requestLength, userId, deltaDatasize, syncRequest, temp3),NullWritable.get())
+				errorCode, requestLength, userId, deltaDatasize, syncRequest, temp3))
         .runTest();
         // 输出
         List<Pair> expectedOutputList = mapDriver.getExpectedOutputs();
