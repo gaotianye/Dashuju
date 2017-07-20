@@ -1,5 +1,7 @@
 package dashuju.celloud.hadoop.demo2;
-
+/**
+ * N个map，1个reduce
+ */
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.conf.Configured;
 import org.apache.hadoop.fs.FileSystem;
