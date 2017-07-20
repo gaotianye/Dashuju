@@ -19,6 +19,7 @@ import org.apache.hadoop.util.Tool;
 import org.apache.hadoop.util.ToolRunner;
 
 /**
+ * 测试：Text, NullWritable
  * MapReduce实现去重 NullWritable的使用
  * 参考：http://www.makaidong.com/%E5%8D%9A%E5%AE%A2%E5%9B%AD%E6%8E%92%E8%A1%8C/18828.shtml
  * 
