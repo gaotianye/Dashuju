@@ -35,7 +35,7 @@ public class NullWritableDemo extends Configured implements Tool  {
 		String[] otherArgs = new GenericOptionsParser(conf, args).getRemainingArgs();
 		
 		if (otherArgs.length < 2) {
-			System.err.println("Usage: demo NullWritableDemo <in> <out>");
+			System.err.println("Usage: demo NullWritableDemo <in> <output>");
 			System.exit(2);
 		}
 		
