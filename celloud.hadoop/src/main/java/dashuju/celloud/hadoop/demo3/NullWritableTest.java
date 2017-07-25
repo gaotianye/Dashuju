@@ -31,9 +31,9 @@ public class NullWritableTest {
     	NullValueMapper mapper = new NullValueMapper();
         mapDriver = MapDriver.newMapDriver(mapper);
         
-        NullValueReducer reducer = new NullValueReducer();
-        reduceDriver = ReduceDriver.newReduceDriver(reducer);
-        mapReduceDriver = MapReduceDriver.newMapReduceDriver(mapper, reducer);
+        //NullValueReducer reducer = new NullValueReducer();
+        //reduceDriver = ReduceDriver.newReduceDriver(reducer);
+        //mapReduceDriver = MapReduceDriver.newMapReduceDriver(mapper, reducer);
     }
     
     @Test

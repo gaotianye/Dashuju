@@ -32,7 +32,7 @@ public class NullDemo extends Configured implements Tool  {
 		String[] otherArgs = new GenericOptionsParser(conf, args).getRemainingArgs();
 		
 		if (otherArgs.length < 2) {
-			System.err.println("Usage: demo NullDemo <in> <output>");
+			System.err.println("Usage: demo null,text <in> <output>");
 			System.exit(2);
 		}
 		
@@ -45,7 +45,7 @@ public class NullDemo extends Configured implements Tool  {
 		//reducer输出：
 		//如果不指定map的输出，则默认用map的输入作为输出
 		job.setMapOutputKeyClass(NullWritable.class);
-		job.setMapOutputValueClass(NullWritable.class);
+		job.setMapOutputValueClass(Text.class);
 		
 		//首先判断input目录是否已经存在，如果存在，先删除
 		boolean exit = FileSystem.get(conf).exists(new Path(otherArgs[1]));
@@ -74,17 +74,17 @@ public class NullDemo extends Configured implements Tool  {
 		}  
 	}
 }
-/*class MyMapper extends Mapper<LongWritable, Text, NullWritable,Text>{
+class MyMapper extends Mapper<LongWritable, Text, NullWritable,Text>{
 	@Override
 	protected void map(LongWritable key, Text value, Context context)
 			throws IOException, InterruptedException {
 		context.write(NullWritable.get(),value);
 	}
-}*/
-class MyMapper extends Mapper<LongWritable, Text, NullWritable,NullWritable>{
-	@Override
-	protected void map(LongWritable key, Text value, Context context)
-			throws IOException, InterruptedException {
-		context.write(NullWritable.get(),NullWritable.get());
-	}
 }
+//class MyMapper extends Mapper<LongWritable, Text, NullWritable,NullWritable>{
+//	@Override
+//	protected void map(LongWritable key, Text value, Context context)
+//			throws IOException, InterruptedException {
+//		context.write(NullWritable.get(),NullWritable.get());
+//	}
+//}

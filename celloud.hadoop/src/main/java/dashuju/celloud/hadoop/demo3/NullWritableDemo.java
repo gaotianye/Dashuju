@@ -36,7 +36,7 @@ public class NullWritableDemo extends Configured implements Tool  {
 		String[] otherArgs = new GenericOptionsParser(conf, args).getRemainingArgs();
 		
 		if (otherArgs.length < 2) {
-			System.err.println("Usage: demo NullWritableDemo <in> <output>");
+			System.err.println("Usage: demo text,null <in> <output>");
 			System.exit(2);
 		}
 		
@@ -45,12 +45,12 @@ public class NullWritableDemo extends Configured implements Tool  {
 		job.setJarByClass(NullWritableDemo.class);
 		//指定mapper
 		job.setMapperClass(NullValueMapper.class);
-		//指定reducer
-		job.setReducerClass(NullValueReducer.class);
+		/*//指定reducer
+		job.setReducerClass(NullValueReducer.class);*/
 		
 		//reducer输出：
-		job.setOutputKeyClass(Text.class);
-		job.setOutputValueClass(NullWritable.class);
+		job.setMapOutputKeyClass(Text.class);
+		job.setMapOutputValueClass(NullWritable.class);
 		
 		//首先判断input目录是否已经存在，如果存在，先删除
 		boolean exit = FileSystem.get(conf).exists(new Path(otherArgs[1]));
@@ -86,10 +86,10 @@ class NullValueMapper extends Mapper<LongWritable, Text, Text, NullWritable>{
 		context.write(value, NullWritable.get());
 	}
 }
-class NullValueReducer extends Reducer<Text, NullWritable, Text, NullWritable>{
+/*class NullValueReducer extends Reducer<Text, NullWritable, Text, NullWritable>{
 	@Override
 	protected void reduce(Text key, Iterable<NullWritable> values,Context context) 
 			throws IOException, InterruptedException {
 		context.write(key, NullWritable.get());
 	}
-}
+}*/
