@@ -17,13 +17,13 @@ import java.io.PrintWriter;
  */
 public class UserData {
 	public static void main(String[] args) {
-		createDatas("10000","D:/ttt.sql");
-		/*if (args.length!=2) {
+//		createDatas("10000","D:/ttt.sql");
+		if (args.length!=2) {
 			System.err.println("Usage: UserData <count W> <out xx/xx.sql>");
 			System.exit(2);
 		}
 		int count = Integer.parseInt(args[0]);
-		createDatas(count * 10000+"",args[1]);*/
+		createDatas(count * 10000+"",args[1]);
 	}
 	
 	private static void createDatas(String count, String out) {
