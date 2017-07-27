@@ -11,6 +11,8 @@ public class RandomValue {
 			.split(",");
 	private static String[] province = "北京市,天津市,香港特别行政区,吉林省,河北省,上海市,山西省,陕西省,新疆维吾尔自治区,云南省,广东省,海南省,辽宁省,黑龙江省,宁夏回族自治区,浙江省,安徽省,江苏省,福建省,河南省,山东省,江西省,湖北省,湖南省,西藏自治区,四川省,贵州省,甘肃省,内蒙古自治区,青海省,广西壮族自治区,重庆市,澳门特别行政区"
 			.split(",");
+	private static String[] job = "人力资源管理师,营销师,电子商务师,物流师,物业管理师,经营师,策划师,营养师,秘书,项目管理师,心理咨询师,公关员,企业培训师,职业经理人,理财规划师,园艺师,景观设计师,一级建造师,二级建造师,造价工程师,注册咨询工程师（投资）,监理工程师,经济师,一级注册建筑师,二级注册建筑师,投资建设项目管理师,环境影响评价工程师,房地产经纪人,房地产估价师,会计,企业法律顾问,造价员,建筑预算员,建筑质检员,建筑材料员,建筑施工员,建筑安全员,建筑五大员年审继教,装饰预算员,装饰施工员,物业管理企业经理,中级导游,咨询工程师,安全评价师,设备监理师,造价工程师,岩土工程师,房地产估价师,土地估价师,建造师,结构工程师,质量资格,投资项目管理师,安全工程师,房地产经纪人,土地登记代理人,环境影响评价师,经济师,注册税务师,资产评估师,会计职称,报关员,报检员,外销员,单证员,审计师,企业法律顾问,国际商务师,BEC,国际商务单证员,国际商务跟单员,国际货运代理师,营销师,物流管理师| 信用管理师 "
+			.split(",");
 	private static final String[] email_suffix = "@gmail.com,@yahoo.com,@msn.com,@hotmail.com,@aol.com,@ask.com,@live.com,@qq.com,@0355.net,@163.com,@163.net,@263.net,@3721.net,@yeah.net,@googlemail.com,@126.com,@sina.com,@sohu.com,@yahoo.com.cn"
 			.split(",");
 
@@ -96,5 +98,47 @@ public class RandomValue {
 		String second = String.valueOf(getNum(11, 150)) + "号";
 		String third = "-" + getNum(1, 20) + "-" + getNum(1, 10);
 		return pro + first + second + third;
+	}
+	/**
+	 * 返回年龄
+	 * @return
+	 */
+	public static int getAge() {
+		double random = Math.random();
+		int age = (int)Math.ceil(random*100/2);
+		if(age<=5){
+			age+=15;
+		}else if(age<=10){
+			age+=10;
+		}else if(age<=15){
+			age+=5;
+		}
+		return age;
+	}
+	/**
+	 * 返回工作
+	 * @return
+	 */
+	public static String getJob() {
+		int index = getNum(0, province.length - 1);
+		return province[index];
+	}
+	/**
+	 * 返回工资/月
+	 * @return
+	 */
+	public static double getSal() {
+		double random1 = Math.random();
+		double random2 = Math.random();
+		double random = random1+random2;
+		return Math.ceil(random*10000);
+	}
+	/**
+	 * 返回消费/月
+	 * @return
+	 */
+	public static double getSale() {
+		double random = Math.random();
+		return Math.ceil(random*10000);
 	}
 }
