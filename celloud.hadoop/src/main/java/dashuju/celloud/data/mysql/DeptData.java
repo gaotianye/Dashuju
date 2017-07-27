@@ -21,7 +21,7 @@ public class DeptData {
 	public static void main(String[] args) {
 //		createDatas("1000000","D:/yyy.sql");
 		if (args.length!=2) {
-			System.err.println("Usage: mysqlData <count W> <out xx/xx.sql>");
+			System.err.println("Usage: DeptData <count W> <out xx/xx.sql>");
 			System.exit(2);
 		}
 		int count = Integer.parseInt(args[0]);
@@ -38,11 +38,11 @@ public class DeptData {
 		try (PrintWriter writer = new PrintWriter(file, "UTF-8");) {
 			writer.write("DROP TABLE IF EXISTS dept;"+"\n");
 			writer.write("CREATE TABLE IF NOT EXISTS dept("+"\n");
-			writer.write("dept_no INT (11) PRIMARY KEY,"+"\n");
-			writer.write("dept_name VARCHAR (60),"+"\n");
-			writer.write("dept_sex VARCHAR (30),"+"\n");
-			writer.write("dept_tel VARCHAR (90),"+"\n");
-			writer.write("dept_address VARCHAR (150)"+"\n");
+			writer.write("dept_no INT (11) COMMENT '编号' DEFAULT '0'  PRIMARY KEY,"+"\n");
+			writer.write("dept_name VARCHAR (60) COMMENT '姓名' DEFAULT 'xxx'  NOT NULL,"+"\n");
+			writer.write("dept_sex VARCHAR (30) COMMENT '性别' DEFAULT 'xxx'  NOT NULL,"+"\n");
+			writer.write("dept_tel VARCHAR (90) COMMENT '手机号' DEFAULT 'xxx'  NOT NULL,"+"\n");
+			writer.write("dept_address VARCHAR (150) COMMENT '家庭住址' DEFAULT 'xxx'  NOT NULL"+"\n");
 			writer.write(");"+"\n");
 			for (int i = 1; i <= c; i++) {
 				String name = "\'"+RandomValue.getChineseName()+"\'";
